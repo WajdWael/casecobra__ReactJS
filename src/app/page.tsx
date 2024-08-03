@@ -1,8 +1,10 @@
 import MaxWidthWrapper from "@/components/MaxWithWrapper";
-import { Check, Star } from "lucide-react";
+import { ArrowRight, Check, Star } from "lucide-react";
 import Phone from "@/components/Phone";
 import { Icons } from "@/components/Icons";
 import { Reviews } from "@/components/Reviews";
+import Link from "next/link";
+import { buttonVariants } from "@/components/ui/button";
 
 export default function Home() {
   return (
@@ -110,8 +112,6 @@ export default function Home() {
         </MaxWidthWrapper>
       </section>
 
-
-      {/* Not completed Yet */}
       <section className="bg-slate-100 py-24">
         <MaxWidthWrapper classname="flex flex-col items-center gap-16 sm:gap-32">
           <header className="flex flex-col lg:flex-row items-center gap-4 sm:gap-6">
@@ -196,9 +196,63 @@ export default function Home() {
         <section className="pt-16">
           <Reviews />
         </section>
+      </section>
 
+      <section>
+        <MaxWidthWrapper classname="py-24">
+          <header className="mb-12 px-6 lg:px-8">
+            <div className="mx-auto max-w-2xl sm:text-cent">
+              <h2 className="order-1 mt-2 tracking-tight text-center text-balance !leading-tight font-bold text-5xl md:text-6xl text-gray-900">
+                Upload your photo and get{' '}
+                <span className="relative px-2 bg-green-600 text-white">
+                  your own case{' '} 
+                </span>{' '}
+                now
+              </h2>
+            </div>
+          </header>
 
+          <article className="mx-auto max-w-6xl px-6 lg:px-8">
+            <div className="relative flex flex-col items-center md:grid grid-cols-2 gap-40">
 
+              <img src="/arrow.png" alt="arrow, drawing hand writing." className="absolute top-[25rem] md:top-1/2 -translate-y-1/2 z-10 left-1/2 -translate-x-1/2 rotate-90 md:rotate-0" />
+              <div className="relative h-80 md:h-full w-full md:justify-self-end max-w-sm rounded-xl bg-gray-900/5 ring-inset ring-gray-900/10 lg:rounded-2xl">
+                <img src="/horse.jpg" alt="A girl standing with her horse." className="rounded-md object-cover bg-white shadow-2xl ring-1 ring-gray-900/10 h-full w-full" />  
+              </div>
+
+              <Phone className="w-60" imgSrc="/horse_phone.jpg" />
+            </div>
+          </article>
+
+          <ul className="mx-auto mt-12 max-w-prose sm:text-lg space-y-2 w-fit">
+                <li className="w-fit">
+                  <Check className="h-5 w-5 text-green-600 inline mr-1.5" />
+                  High-quality silicone material.
+                </li>
+                <li className="w-fit">
+                  <Check className="h-5 w-5 text-green-600 inline mr-1.5" />
+                  Scratch and fingerprint resistant coating.
+                </li>
+                <li className="w-fit">
+                  <Check className="h-5 w-5 text-green-600 inline mr-1.5" />
+                  Wireless charging compatible.
+                </li>
+                <li className="w-fit">
+                  <Check className="h-5 w-5 text-green-600 inline mr-1.5" />
+                  5 year print warranty.
+                </li>
+
+                <section className="flex justify-center">
+                  <Link className={buttonVariants({
+                    size: 'lg',
+                    className: "mx-auto mt-8"
+                  })} href='/configure/upload'>
+                    Create your case now 
+                    <ArrowRight className='h-4 w-4 ml-1.5' /> 
+                  </Link>
+                </section>
+              </ul>
+        </MaxWidthWrapper>
       </section>
     </main>
   )
